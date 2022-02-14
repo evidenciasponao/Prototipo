@@ -1,4 +1,3 @@
-from distutils.log import debug
 from fileinput import filename
 import re
 from flask import Flask
@@ -195,4 +194,4 @@ def autentication():
     return redirect('/')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
