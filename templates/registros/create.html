@@ -1,6 +1,6 @@
     {% include 'header.html' %}
     <br>
-    <form method="post" action="/store" enctype="multipart/form-data">
+    <form method="post" action="/store" enctype="multipart/form-data" autocomplete="off">
 
         <div class="card">
             <div class="card-header">
@@ -21,11 +21,11 @@
                     </div>
                     <div class="form-group">
                         <label for="txtNombres">Nombres:</label>
-                        <input id="txtNombres" class="form-control" type="text" name="txtNombres" required>
+                        <input id="txtNombres" class="form-control" type="text" name="txtNombres" required autocomplete="offen">
                     </div>
                     <div class="form-group">
                         <label for="txtApellidos">Apellidos:</label>
-                        <input id="txtApellidos" class="form-control" type="text" name="txtApellidos" required>
+                        <input id="txtApellidos" class="form-control" type="text" name="txtApellidos" required autocomplete="offen">
                     </div>
                     <div class="form-group">
                         <label for="txtTelefono">Telefono:</label>

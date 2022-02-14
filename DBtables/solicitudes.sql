@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-02-2022 a las 18:27:41
+-- Tiempo de generación: 14-02-2022 a las 19:10:08
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.14
 
@@ -44,6 +44,13 @@ CREATE TABLE `registro` (
   `foto` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `registro`
+--
+
+INSERT INTO `registro` (`id`, `cedula`, `lugarExpedicion`, `nombres`, `apellidos`, `telefono`, `email`, `empresaLaboro`, `cargo`, `fechaInicio`, `fechaRetiro`, `fechaNacimiento`, `fondoPension`, `foto`) VALUES
+(1, '1075234987', 'Neiva', 'Anderson', 'Montenegro', '3214521011', 'adn@gmail.com', 'Gobernacion', 'Secretario', 'Enero', 'Diciembre', 'Marzo', 'Porvenir', '2022130953129035359_389829785582762_7863645813920318618_n.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -60,14 +67,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `password`) VALUES
-('anderson', '1989'),
-('laura', '2010'),
-('anderson', '2022'),
-('laura', '2010'),
-('laura', '2010'),
-('anderson', '1989'),
-('anderson', '2022'),
-('ana', '0000'),
 ('anderson', '2022');
 
 --
@@ -88,7 +87,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

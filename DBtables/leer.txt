@@ -1,1 +1,4 @@
 Este archivo de configuracion guarda la informacion de las tablas usadas
+
+tabla user: para la creacion de usuarios
+tabla registro: para el almacenamiento de datos
