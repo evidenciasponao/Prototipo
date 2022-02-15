@@ -12,14 +12,15 @@
 		<h3 class="text-center">Inicio de sesión</h3>
 		<div class="form-group">
 			<label for="Nombre">Usuario</label>
-			<input type="text" value="" class="form-control" name="u" id="Nombre" placeholder="Escribe tu usuario" autofocus>
+			<input type="text" value="" class="form-control" name="u" id="Nombre" placeholder="Escribe tu usuario" autofocus required>
 		</div>
 		<div class="form-group">
 			<label for="Pass">Contraseña</label>
-			<input type="password" class="form-control" name="p" id="Pass" placeholder="Escribe tu contraseña">
+			<input type="password" class="form-control" name="p" id="Pass" placeholder="Escribe tu contraseña" required>
 		</div>
 		<p class="text-center">
             <input type="submit" class="btn btn-success" value="Ingresar">
+			<!-- <a href="{{url_for('index')}}" class="btn btn-success">Ingresar</a> arreglarlo-->
             <a href="{{url_for('registro')}}" class="btn btn-primary">Registrar</a>
 		</p>
 	</form>
