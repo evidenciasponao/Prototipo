@@ -152,10 +152,6 @@ def storage():
 def loggin():
     return render_template('Inicio.html')
 
-@app.route('/dashboard')
-def dash():
-    return render_template('Dashboard.html')
-
 @app.route('/registro')
 def registro():
     return render_template('Registro.html')
@@ -163,6 +159,10 @@ def registro():
 @app.route("/error")
 def errorConexion():
     return render_template('ErrorConexion.html')
+
+@app.route("/home")
+def home():
+    return render_template('home.html')
 
 @app.route('/', methods=['POST'])
 def Autenticate():
@@ -175,7 +175,7 @@ def Autenticate():
     if data is None:
         return render_template('ErrorConexion.html')
     else:
-        return render_template('registros/index.html')
+        return render_template('registros/home.html')
 
 @app.route('/autentication', methods=['POST'])
 def autentication():
