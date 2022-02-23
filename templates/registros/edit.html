@@ -2,7 +2,7 @@
 <br>
 {% for registro in registros %}
 
-<form method="post" action="/update" enctype="multipart/form-data">
+<form method="post" action="/update" enctype="multipart/form-data" autocomplete="off">
 
     <div class="card">
         <div class="card-header">
@@ -23,11 +23,11 @@
                 </div>
                 <div class="form-group">
                     <label for="txtNombres">Nombres:</label>
-                    <input id="txtNombres" value="{{ registro[3] }}" class="form-control" type="text" name="txtNombres" required>
+                    <input id="txtNombres" value="{{ registro[3] }}" class="form-control" type="text" name="txtNombres" requiredautocomplete="offen">
                 </div>
                 <div class="form-group">
                     <label for="txtApellidos">Apellidos:</label>
-                    <input id="txtApellidos" value="{{ registro[4] }}" class="form-control" type="text" name="txtApellidos" required>
+                    <input id="txtApellidos" value="{{ registro[4] }}" class="form-control" type="text" name="txtApellidos" required autocomplete="offen">
                 </div>
                 <div class="form-group">
                     <label for="txtTelefono">Teléfono:</label>
@@ -55,18 +55,26 @@
                 </div>
                 <div class="form-group">
                     <label for="txtFechaNacimiento">Fecha de nacimiento:</label>
-                    <input id="txtFechaNacimiento" value="{{ registro[11] }}" class="form-control" type="text" name="txtFechaNacimiento" required>
+                    <input id="txtFechaNacimiento" value="{{ registro[11] }}" class="form-control" type="date" name="txtFechaNacimiento" required>
                 </div>
                 <div class="form-group">
                     <label for="txtFondoPension">Fondo de pensión en el que estuvo afiliado:</label>
                     <input id="txtFondoPension" value="{{ registro[12] }}" class="form-control" type="text" name="txtFondoPension" required>
                 </div>
                 <div class="form-group">
-                    <label for="txtFoto">Foto:</label>
+                    <label for="txtFoto">Foto de la solicitud:</label>
 
                     <img class="img-thumbnail" width="100" src="{{url_for('uploads', nombreFoto=registro[13])}}" alt="">
 
                     <input id="txtFoto" class="form-control" type="file" name="txtFoto">
+                </div>
+                <div class="form-group">
+                    <label for="txtEstadoSolicitud">Estado de la Solicitud:</label>
+                    <input id="txtEstadoSolicitud" value="{{ registro[14] }}" class="form-control" type="text" name="txtEstadoSolicitud" required>
+                </div>
+                <div class="form-group">
+                    <label for="txtNotas">Notas:</label>
+                    <input id="txtNotas" value="{{ registro[15] }}" class="form-control" type="text" name="txtNotas">
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success" value="Modificar">

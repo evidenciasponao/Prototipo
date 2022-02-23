@@ -1,3 +1,4 @@
+#Importacion de librerias de la aplicacion
 from fileinput import filename
 import re
 from flask import Flask
@@ -7,8 +8,10 @@ from flask import send_from_directory
 from datetime import datetime
 import os 
 
+#Se crea la aplicacion Flask
 app = Flask(__name__)
 
+#Configuracion acceso a base de datos Mariadb
 mysql = MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
 app.config['MYSQL_DATABASE_USER']='root'
@@ -16,9 +19,11 @@ app.config['MYSQL_DATABASE_PASSWORD']=''
 app.config['MYSQL_DATABASE_DB']='solicitudes'
 mysql.init_app(app)
 
+#Ruteo para la carpeta de subidas del usuario
 CARPETA= os.path.join('uploads')
 app.config['CARPETA']=CARPETA
 
+#Ruteo para guardar las fotos en el directorio uploads
 @app.route('/uploads/<nombreFoto>')
 def uploads(nombreFoto):
     return send_from_directory(app.config['CARPETA'],nombreFoto)
@@ -80,10 +85,13 @@ def update():
     _fondoPension=request.form['txtFondoPension']
     _foto=request.files['txtFoto']    
     id=request.form['txtID']
+    _estado=request.form['txtEstadoSolicitud']
+    _notas=request.form['txtNotas']
 
-    sql ="UPDATE `registro` SET cedula=%s, lugarExpedicion=%s, nombres=%s, apellidos=%s, telefono=%s, email=%s, empresaLaboro=%s, cargo=%s, fechaInicio=%s, fechaRetiro=%s, fechaNacimiento=%s, fondoPension=%s WHERE id=%s ;"
+
+    sql ="UPDATE `registro` SET cedula=%s, lugarExpedicion=%s, nombres=%s, apellidos=%s, telefono=%s, email=%s, empresaLaboro=%s, cargo=%s, fechaInicio=%s, fechaRetiro=%s, fechaNacimiento=%s, fondoPension=%s, estado=%s, notas=%s WHERE id=%s ;"
     
-    datos=(_cedula,_lugarExpedicion,_nombres,_apellidos,_telefono,_email,_empresaLaboro,_cargo,_fechaInicio,_fechaRetiro,_fechaNacimiento,_fondoPension, id)
+    datos=(_cedula,_lugarExpedicion,_nombres,_apellidos,_telefono,_email,_empresaLaboro,_cargo,_fechaInicio,_fechaRetiro,_fechaNacimiento,_fondoPension, _estado, _notas, id)
     
     conn = mysql.connect()
     cursor = conn.cursor()
@@ -127,6 +135,8 @@ def storage():
     _fechaNacimiento=request.form['txtFechaNacimiento']
     _fondoPension=request.form['txtFondoPension']
     _foto=request.files['txtFoto']
+    _estado=request.form['txtEstadoSolicitud']
+    _notas=request.form['txtNotas']
 
     now = datetime.now()
     tiempo = now.strftime("%Y%H%M%S")
@@ -135,9 +145,9 @@ def storage():
         nuevoNombreFoto=tiempo+_foto.filename
         _foto.save("uploads/"+nuevoNombreFoto)
 
-    sql ="INSERT INTO `registro` (`id`, `cedula`, `lugarExpedicion`, `nombres`, `apellidos`, `telefono`, `email`, `empresaLaboro`, `cargo`, `fechaInicio`, `fechaRetiro`, `fechaNacimiento`, `fondoPension`, `foto`) VALUES (NULL,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+    sql ="INSERT INTO `registro` (`id`, `cedula`, `lugarExpedicion`, `nombres`, `apellidos`, `telefono`, `email`, `empresaLaboro`, `cargo`, `fechaInicio`, `fechaRetiro`, `fechaNacimiento`, `fondoPension`, `foto`, `estado`, `notas`) VALUES (NULL,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
     
-    datos=(_cedula,_lugarExpedicion,_nombres,_apellidos,_telefono,_email,_empresaLaboro,_cargo,_fechaInicio,_fechaRetiro,_fechaNacimiento,_fondoPension,nuevoNombreFoto)
+    datos=(_cedula,_lugarExpedicion,_nombres,_apellidos,_telefono,_email,_empresaLaboro,_cargo,_fechaInicio,_fechaRetiro,_fechaNacimiento,_fondoPension,nuevoNombreFoto,_estado,_notas)
     
     conn = mysql.connect()
     cursor = conn.cursor()

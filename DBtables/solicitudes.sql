@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-02-2022 a las 19:10:08
+-- Tiempo de generación: 23-02-2022 a las 22:54:57
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.14
 
@@ -39,17 +39,19 @@ CREATE TABLE `registro` (
   `cargo` varchar(255) NOT NULL,
   `fechaInicio` varchar(255) NOT NULL,
   `fechaRetiro` varchar(255) NOT NULL,
-  `fechaNacimiento` varchar(255) NOT NULL,
+  `fechaNacimiento` date NOT NULL,
   `fondoPension` varchar(255) NOT NULL,
-  `foto` varchar(5000) NOT NULL
+  `foto` varchar(5000) NOT NULL,
+  `estado` varchar(255) NOT NULL,
+  `notas` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `registro`
 --
 
-INSERT INTO `registro` (`id`, `cedula`, `lugarExpedicion`, `nombres`, `apellidos`, `telefono`, `email`, `empresaLaboro`, `cargo`, `fechaInicio`, `fechaRetiro`, `fechaNacimiento`, `fondoPension`, `foto`) VALUES
-(1, '1075234987', 'Neiva', 'Anderson', 'Montenegro', '3214521011', 'adn@gmail.com', 'Gobernacion', 'Secretario', 'Enero', 'Diciembre', 'Marzo', 'Porvenir', '2022130953129035359_389829785582762_7863645813920318618_n.jpg');
+INSERT INTO `registro` (`id`, `cedula`, `lugarExpedicion`, `nombres`, `apellidos`, `telefono`, `email`, `empresaLaboro`, `cargo`, `fechaInicio`, `fechaRetiro`, `fechaNacimiento`, `fondoPension`, `foto`, `estado`, `notas`) VALUES
+(1, '1075234987', 'Neiva', 'Anderson Alexis', 'Montenegro Melo', '3214521011', 'adn@gmail.com', 'Gobernacion', 'Gerente', 'Enero 2000', 'Diciembre 2000', '1989-03-01', 'Porvenir', '2022165319Solicitud Omar.jpg', 'Finalizada', '');
 
 -- --------------------------------------------------------
 

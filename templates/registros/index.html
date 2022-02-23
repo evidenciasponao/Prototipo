@@ -25,6 +25,8 @@
                 <th>Nacimiento</th>
                 <th>Pension</th>
                 <th>Foto</th>
+                <th>Estado</th>
+                <th>Notas</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -50,6 +52,9 @@
                     <img class="img-thumbnail" width="100" src="uploads/{{ registro[13] }}" alt="">
                     
                 </td>
+
+                <td>{{ registro[14] }}</td>
+                <td>{{ registro[15] }}</td>
 
                 <td> <a class="btn btn-warning" href="/edit/{{registro[0]}}">Editar</a> │
                     <a onclick="return confirm('¿Desea borrar el registro?')" class="btn btn-danger" href="/destroy/{{registro[0]}}">Eliminar</a>                    

@@ -53,15 +53,23 @@
                     </div>
                     <div class="form-group">
                         <label for="txtFechaNacimiento">Fecha de nacimiento:</label>
-                        <input id="txtFechaNacimiento" class="form-control" type="text" name="txtFechaNacimiento" required>
+                        <input id="txtFechaNacimiento" class="form-control" type="date" name="txtFechaNacimiento" required>
                     </div>
                     <div class="form-group">
                         <label for="txtFondoPension">Fondo de pensión en el que estuvo afiliado:</label>
                         <input id="txtFondoPension" class="form-control" type="text" name="txtFondoPension" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtFoto">Foto:</label>
+                        <label for="txtFoto">Foto de la soliciud:</label>
                         <input id="txtFoto" class="form-control" type="file" name="txtFoto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtEstadoSolicitud">Estado de la Solicitud:</label>
+                        <input id="txtEstadoSolicitud" class="form-control" type="text" value="Pendiente" name="txtEstadoSolicitud" required autocomplete="offen">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNotas">Notas:</label>
+                        <input id="txtNotas" class="form-control" type="text" name="txtNotas">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-success" value="Agregar">
